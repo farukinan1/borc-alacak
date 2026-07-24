@@ -1,0 +1,20 @@
+BORÇ ALACAK – iPHONE KURULUM
+
+Bu klasör bir PWA uygulamasıdır. iPhone'a doğrudan .html dosyası açarak tam uygulama şeklinde kurulamaz; dosyaların HTTPS üzerinden yayınlanması gerekir.
+
+En kolay ücretsiz yayınlama:
+1. Netlify Drop veya GitHub Pages gibi bir servise klasörün içeriğini yükleyin.
+2. Oluşan bağlantıyı iPhone'da Safari ile açın.
+3. Paylaş düğmesine dokunun.
+4. “Ana Ekrana Ekle” seçeneğini seçin.
+5. Uygulama simgesi ana ekrana gelir ve çevrimdışı çalışır.
+
+Özellikler:
+- Borç ve alacak kaydı
+- Kısmi ödeme ekleme
+- Kalan bakiye
+- Arama ve filtreleme
+- JSON yedek alma / yükleme
+- Cihaz üzerinde yerel saklama
+
+- Kişiye özel PDF hesap ekstresi oluşturma ve iPhone paylaşım menüsünden WhatsApp'a gönderme

@@ -1,0 +1,72 @@
+*{box-sizing:border-box}
+:root{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:#0f172a;background:#f8fafc;
+}
+body{margin:0;padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+.topbar{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:calc(16px + env(safe-area-inset-top)) 18px 16px;
+  background:#0f172a;color:white;box-shadow:0 2px 12px rgba(15,23,42,.18)
+}
+h1{margin:0;font-size:23px}
+.topbar p{margin:3px 0 0;color:#cbd5e1;font-size:13px}
+main{max-width:760px;margin:auto;padding:16px}
+.summary{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.card{background:white;border-radius:18px;padding:16px;box-shadow:0 6px 20px rgba(15,23,42,.07);border:1px solid #e2e8f0}
+.stat span{display:block;color:#64748b;font-size:13px;margin-bottom:7px}
+.stat strong{font-size:21px}
+.stat.net{grid-column:1/-1;background:#eff6ff}
+.form-card h2,.backup h2{margin:0 0 14px;font-size:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:12px}
+input,select{
+  width:100%;margin-top:6px;padding:13px 12px;border:1px solid #cbd5e1;
+  border-radius:12px;background:white;font-size:16px;color:#0f172a
+}
+button,.secondary{border:0;border-radius:12px;padding:12px 15px;font-size:15px;font-weight:700;cursor:pointer}
+.primary{background:#2563eb;color:white;width:100%}
+.secondary{background:#e2e8f0;color:#0f172a;display:inline-flex;align-items:center;justify-content:center}
+.danger{background:#fee2e2;color:#b91c1c}
+.ghost{background:rgba(255,255,255,.12);color:white}
+.hidden{display:none}
+.toolbar{display:grid;grid-template-columns:1fr 150px;gap:10px;margin:14px 0}
+.toolbar input,.toolbar select{margin:0}
+.list{display:grid;gap:12px}
+.entry{padding:15px}
+.entry-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.entry h3{margin:0 0 4px;font-size:17px}
+.meta{color:#64748b;font-size:13px}
+.badge{padding:6px 9px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap}
+.badge.receivable{background:#dcfce7;color:#166534}
+.badge.debt{background:#fee2e2;color:#991b1b}
+.amount-row{display:flex;justify-content:space-between;align-items:end;margin:14px 0 10px}
+.amount-row small{display:block;color:#64748b;margin-bottom:3px}
+.amount-row strong{font-size:19px}
+.progress{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-bottom:12px}
+.progress>span{display:block;height:100%;background:#2563eb}
+.entry-actions{display:grid;grid-template-columns:1fr auto auto auto;gap:8px}
+.entry-actions button{padding:10px 12px}
+.delete{background:#fff1f2;color:#be123c}
+.share{background:#dcfce7;color:#166534}
+.edit{background:#f1f5f9;color:#334155}
+.closed{opacity:.66}
+.backup{margin-top:18px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.actions .danger{grid-column:1/-1}
+.file-label{margin:0;font-size:15px}
+.file-label input{display:none}
+.hint{font-size:12px;color:#64748b;margin:12px 0 0}
+.empty{text-align:center;color:#64748b;padding:28px}
+.empty strong{display:block;color:#334155;margin-bottom:6px}
+dialog{border:0;border-radius:18px;width:min(92vw,420px);padding:20px}
+dialog::backdrop{background:rgba(15,23,42,.55)}
+dialog h3{margin-top:0}
+.dialog-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){
+  .grid{grid-template-columns:1fr}
+  .toolbar{grid-template-columns:1fr}
+  .entry-actions{grid-template-columns:1fr 1fr}
+  .entry-actions .pay,.entry-actions .share{grid-column:auto}
+}
