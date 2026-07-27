@@ -1,0 +1,26 @@
+FARUK İNAN – MÜKELLEF TAKİP
+GitHub Pages kurulum dosyaları
+
+1. Bu ZIP dosyasını iPhone veya bilgisayarda açın.
+2. GitHub deposundaki eski web uygulaması dosyalarını silin.
+3. ZIP içindeki dosyaların tamamını deponun ana dizinine yükleyin.
+4. Commit changes düğmesine basın.
+5. GitHub > Settings > Pages bölümünde:
+   - Source: Deploy from a branch
+   - Branch: main
+   - Folder: / (root)
+6. Kaydedin ve birkaç dakika bekleyin.
+7. GitHub Pages bağlantısını iPhone Safari'de açın.
+8. Paylaş > Ana Ekrana Ekle yolunu izleyin.
+
+ÖNEMLİ VERİ GÜVENLİĞİ
+- Aynı GitHub Pages adresi kullanılırsa eski veriler genellikle korunur.
+- Güncellemeden önce uygulamadaki “Yedeği İndir” düğmesiyle JSON yedeği alın.
+- Kayıtlar görünmezse “Yedek Yükle” ile JSON dosyasını geri yükleyin.
+- Safari site verilerini temizlemeyin ve GitHub Pages adresini değiştirmeyin.
+
+PDF alt bilgisi:
+Faruk İNAN
+Telefon: 0544 935 45 25
+IBAN: TR32 0001 0003 9952 4499 8750 01
+Adres: Fırat Mah. Ebu Sadık Cad. No: 14/C, Kahta / Adıyaman

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Mükellef Takip">
+  <title>Faruk İnan – Mükellef Takip</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <button id="backBtn" class="icon-btn hidden" aria-label="Geri">‹</button>
+  <img src="logo.png" class="header-logo" alt="Faruk İnan">
+  <div class="title-wrap">
+    <h1 id="pageTitle">Mükellef Takip</h1>
+    <p id="pageSubtitle">Faruk İnan • Cari takip sistemi</p>
+  </div>
+  <button id="homeBtn" class="ghost hidden">Ana Sayfa</button>
+  <button id="installBtn" class="ghost hidden">Yükle</button>
+</header>
+
+<main>
+<section id="homeView">
+  <section class="summary dashboard">
+    <article class="card stat"><span>Toplam Mükellef</span><strong id="clientCount">0</strong></article>
+    <article class="card stat"><span>Borcu Olan</span><strong id="debtClientCount">0</strong></article>
+    <article class="card stat"><span>Bu Ay Tahsilat</span><strong id="monthPayments">₺0,00</strong></article>
+    <article class="card stat"><span>Toplam Alacak</span><strong id="officeReceivable">₺0,00</strong></article>
+    <article class="card stat net"><span>Bu Ay Eklenen Borç</span><strong id="monthCharges">₺0,00</strong></article>
+  </section>
+
+  <section class="card quick-actions">
+    <button id="bulkMonthlyBtn" class="primary">Bu Ayın Borçlarını Toplu Ekle</button>
+    <button id="bulkShareBtn" class="share">PDF’leri Sırayla Paylaş</button>
+  </section>
+
+  <section class="card form-card">
+    <h2>Yeni Mükellef</h2>
+    <form id="clientForm">
+      <div class="grid">
+        <label>Ad / Unvan<input id="clientName" required maxlength="90"></label>
+        <label>Telefon<input id="clientPhone" inputmode="tel" maxlength="20"></label>
+        <label>Vergi / T.C. No<input id="clientTaxNo" inputmode="numeric" maxlength="11"></label>
+        <label>Aylık Hizmet Bedeli<input id="clientMonthlyFee" type="number" inputmode="decimal" min="0" step="0.01"></label>
+        <label>İşe Başlama Tarihi<input id="clientStartDate" type="date"></label>
+        <label>Terk Tarihi<input id="clientEndDate" type="date"></label>
+        <label>Durum<select id="clientStatus"><option value="active">Aktif</option><option value="suspended">Askıda</option><option value="pending">Beklemede</option><option value="closed">Terk</option></select></label>
+        <label>E-posta<input id="clientEmail" type="email" maxlength="90"></label>
+        <label>Vergi Dairesi<input id="clientTaxOffice" maxlength="80"></label>
+        <label>SGK İşyeri Sicil No<input id="clientSgkNo" maxlength="40"></label>
+        <label class="wide">Adres<input id="clientAddress" maxlength="180"></label>
+        <label class="wide">Notlar<input id="clientNotes" maxlength="240"></label>
+      </div>
+      <button class="primary" type="submit">Mükellefi Ekle</button>
+    </form>
+  </section>
+
+  <section class="toolbar">
+    <input id="clientSearch" placeholder="Mükellef ara">
+    <select id="clientFilter">
+      <option value="all">Tümü</option>
+      <option value="active">Aktifler</option>
+      <option value="closed">Terk/Pasif</option>
+      <option value="debt">Borcu Olanlar</option>
+      <option value="clear">Borcu Olmayanlar</option>
+    </select>
+  </section>
+  <section id="clientList" class="list"></section>
+
+  <section class="card activity-card">
+    <div class="section-head"><h2>İşlem Günlüğü</h2><button id="clearLogBtn" class="edit">Günlüğü Temizle</button></div>
+    <section id="activityList" class="activity-list"></section>
+  </section>
+
+  <section class="card backup">
+    <h2>Yedekleme</h2>
+    <div class="actions">
+      <button id="exportBtn" class="secondary">Yedeği İndir</button>
+      <label class="secondary file-label">Yedek Yükle<input id="importFile" type="file" accept=".json,application/json"></label>
+      <button id="clearBtn" class="danger">Tüm Verileri Sil</button>
+    </div>
+    <p class="hint">GitHub güncellemesinden önce yedek alınız. Önceki sürüm yedekleri desteklenir.</p>
+  </section>
+</section>
+
+<section id="clientView" class="hidden">
+  <section class="summary client-summary">
+    <article class="card stat"><span>Toplam Borç</span><strong id="clientTotalCharge">₺0,00</strong></article>
+    <article class="card stat"><span>Toplam Ödeme</span><strong id="clientTotalPayment">₺0,00</strong></article>
+    <article class="card stat net"><span>Kalan Bakiye</span><strong id="clientBalance">₺0,00</strong></article>
+  </section>
+
+  <section class="client-actions card">
+    <button id="addMonthlyBtn" class="primary">Bu Ayın Borcunu Ekle</button>
+    <button id="addChargeBtn" class="secondary">Borç Ekle</button>
+    <button id="addPaymentBtn" class="secondary">Ödeme Ekle</button>
+    <button id="sharePdfBtn" class="share">PDF / WhatsApp</button>
+  </section>
+
+  <section class="card client-info">
+    <div><small>Ödeme Durumu</small><strong id="detailPaymentStatus">—</strong></div>
+    <div><small>Durum</small><strong id="detailStatus">—</strong></div>
+    <div><small>Telefon</small><strong id="detailPhone">—</strong></div>
+    <div><small>Vergi / T.C. No</small><strong id="detailTaxNo">—</strong></div>
+    <div><small>Aylık Hizmet Bedeli</small><strong id="detailMonthlyFee">₺0,00</strong></div>
+    <div><small>İşe Başlama</small><strong id="detailStartDate">—</strong></div>
+    <div><small>Terk Tarihi</small><strong id="detailEndDate">—</strong></div>
+    <div><small>E-posta</small><strong id="detailEmail">—</strong></div>
+    <div><small>Vergi Dairesi</small><strong id="detailTaxOffice">—</strong></div>
+    <div><small>SGK İşyeri Sicil No</small><strong id="detailSgkNo">—</strong></div>
+    <div class="wide"><small>Adres</small><strong id="detailAddress">—</strong></div>
+    <div class="wide"><small>Notlar</small><strong id="detailNotes">—</strong></div>
+    <button id="editClientBtn" class="edit">Mükellefi Düzenle</button>
+  </section>
+
+  <section class="card portal-links">
+    <h2>Resmî Kurum Bağlantıları</h2>
+    <div class="portal-grid">
+      <a class="portal-btn tax" href="https://dijital.gib.gov.tr/portal" target="_blank" rel="noopener">Dijital Vergi Dairesi</a>
+      <a class="portal-btn sgk" href="https://e.sgk.gov.tr/Uygulamalar/Isveren" target="_blank" rel="noopener">SGK İşveren Uygulamaları</a>
+      <a class="portal-btn" href="https://e.sgk.gov.tr/" target="_blank" rel="noopener">e-SGK Portalı</a>
+      <a class="portal-btn" href="https://ebildirge.sgk.gov.tr/EBildirgeV2" target="_blank" rel="noopener">e-Bildirge V2</a>
+    </div>
+  </section>
+
+  <div class="section-head"><h2>Hesap Hareketleri</h2><select id="movementYear"></select></div>
+  <section id="movementList" class="list"></section>
+</section>
+</main>
+
+<dialog id="movementDialog">
+  <form method="dialog" id="movementForm">
+    <h3 id="movementTitle">Hareket Ekle</h3>
+    <input id="movementType" type="hidden">
+    <label>Tutar<input id="movementAmount" type="number" inputmode="decimal" min="0.01" step="0.01" required></label>
+    <label>Tarih<input id="movementDate" type="date" required></label>
+    <label>Açıklama<input id="movementNote" maxlength="120" required></label>
+    <div class="dialog-actions"><button value="cancel" class="secondary">Vazgeç</button><button value="default" class="primary">Kaydet</button></div>
+  </form>
+</dialog>
+
+<dialog id="queueDialog">
+  <div>
+    <h3>PDF Paylaşım Kuyruğu</h3>
+    <p id="queueInfo" class="queue-info"></p>
+    <div id="queueList" class="queue-list"></div>
+    <button id="queueNextBtn" class="primary full">Sıradaki PDF’yi Aç</button>
+    <button id="queueCloseBtn" class="secondary full">Kapat</button>
+  </div>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
