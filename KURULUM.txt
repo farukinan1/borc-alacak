@@ -1,0 +1,1 @@
+v24: KRİTİK DÜZELTME: app.js düzenleme dialogundan sonra yükleniyor. Önceden cancelEditClientBtn bulunmadığı için JavaScript tamamen duruyordu; yedek seçme dinleyicisi hiç kurulmamıştı. Artık Yedeği Yükle > JSON seç > onayla > yükle.
