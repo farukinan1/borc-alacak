@@ -1,1 +1,0 @@
-v23 iPhone: Mavi Yedeği Yükle düğmesine dokun, JSON seç, onayla. Tek formda mükellef düzenleme korunmuştur.
