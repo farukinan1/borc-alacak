@@ -1,0 +1,9 @@
+MÜKELLEF TAKİP v19 — iPHONE
+Bu sürümde hazır veri / şifreli veri ekranı kaldırılmıştır.
+Yalnızca kullanıcının seçtiği JSON yedek dosyası geri yüklenir.
+1. ZIP içindeki dosyaları GitHub borc-alacak deposunun köküne yükleyin.
+2. iPhone Safari'de sayfayı yenileyin; gerekirse ana ekran uygulamasını kapatıp yeniden açın.
+3. Yedekleme > Dosyayı Seç ile .json yedeğinizi seçin.
+4. Yedeği Kontrol Et ve Geri Yükle > Onayla.
+5. Başarılı mesajını ve mükellef sayısını kontrol edin.
+Mevcut kayıtları silmeyin. Yedek başarıyla yüklenmeden Tüm Verileri Sil'e basmayın.
