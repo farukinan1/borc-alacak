@@ -1,0 +1,1 @@
+v20 iPhone: Basit geri yükleme. JSON dosyasını seç, onayla, program otomatik yeniden açılır. Mevcut verilerinizi önce yedekleyin.\n
